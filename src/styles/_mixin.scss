@@ -5,3 +5,9 @@
     justify-content: $justify;
     flex-direction: $direc;
 }
+
+@mixin mobile(){
+    @media (max-width: 600px){
+        @content;
+    }
+}

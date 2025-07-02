@@ -7,7 +7,7 @@
     height: 4vmax;
     background-color: $mainDark;
     padding: 0 5vmax;
-    @include flex(center, start, row);
+    @include flex(center, space-between, row);
 
     .logo{
         height: 3vmax;
@@ -21,6 +21,73 @@
             color: #fff;
             user-select: none;
             cursor: pointer;
+        }
+    }
+
+    .set-ico-a{
+        position: relative;
+        height: 2vmax;
+        width: 2vmax;
+        background-image: url(../../assets/Icons/setting.png);
+        background-size: cover;
+        background-position: center;
+        transition: 0.2s;
+    }
+
+    .set-ico-a::after{
+        position: absolute;
+        bottom: -2.8vmax;
+        right: -1vmax;
+        content: 'Settings';
+        height: 2vmax;
+        width: 4vmax;
+        background-color: $mainLight;
+        border: 1px solid rgb(98, 98, 98);
+        color: #fff;
+        font-family: sans-serif;
+        border-radius: .3vmax;
+        @include flex(center, center, row);
+        font-size: .8vmax;
+        pointer-events: none;
+        transition: 0.2s;
+        opacity: 0;
+
+        @include mobile(){
+            display: none;
+        }
+    }
+
+    .set-ico-a:hover::after{
+        opacity: 1;
+    }
+
+    .search-bar-cnt{
+        height: 2.3vmax;
+        width: 25vmax;
+        margin-right: 5vmax;
+        border: 2px solid #5d5d5d;
+        border-radius: .4vmax;
+        @include flex(center, start, row);
+        padding: 0 1vmax;
+
+        .searchIco{
+            height: 1vmax;
+            width: 1vmax;
+            background-image: url(../../assets/Icons/searchIco.png);
+            background-position: center;
+            background-size: 90%;
+            background-repeat: no-repeat;
+        }
+
+        .searchBox{
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+            padding: 0 1vmax;
+            border: none;
+            outline: none;
+            color: #a9a9a9;
+            font-size: .9vmax;
         }
     }
 }
