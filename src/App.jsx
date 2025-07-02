@@ -1,12 +1,31 @@
 import { useState } from 'react'
-import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Navbar from './components/Navbar/Navbar'
+import Home from './components/HomePage/Home';
+import Completed from './components/Completed/Completed';
+import Deleted from './components/Deleted/Deleted';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const route = createBrowserRouter([
+    {
+      path: '/',
+      element: <><Navbar/><Home/></>
+    },
+    {
+      path: '/Completed',
+      element: <><Navbar/><Completed/></>
+    },
+    {
+      path: '/Deleted',
+      element: <><Navbar/><Deleted/></>
+    }
+  ])
 
   return (
     <>
-      
+      <RouterProvider router={route}></RouterProvider>
     </>
   )
 }
