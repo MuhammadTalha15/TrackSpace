@@ -1,6 +1,8 @@
 import React from 'react'
 import './style.scss'
 
+import userDp from '../../assets/Icons/profile.png'
+
 const Navbar = () => {
   return (
     <>
@@ -14,9 +16,11 @@ const Navbar = () => {
           <input type="text" name="search" id="search" className='searchBox' placeholder='Search Task'/>
         </div>
 
-        <a href="#" aria-label='Setting Button' className='set-ico-a'>
-          <span className='set-ico'></span>
-        </a>
+        <div className="usr-prfl">
+            <div className="pic">
+              <img className='usr-dp' src={userDp} alt="" />
+            </div>
+        </div>
       </header>
     </>
   )

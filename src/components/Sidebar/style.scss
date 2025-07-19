@@ -1,0 +1,111 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+
+.sd-bar {
+    height: 100vh;
+    width: $sideBarWidth;
+    background-color: $mainDark;
+    padding: 0 .5vmax;
+    padding-top: 5vmax;
+    padding-bottom: 1vmax;
+    @include flex(center, space-between, column);
+
+    .side-nav {
+        height: 20vmax;
+        width: 100%;
+        // border: 1px solid white;
+        @include flex(flex-start, start, column);
+        gap: 1vmax;
+
+        @include sideBarAfters();
+
+        .side-bar-link {
+            position: relative;
+            color: #fff;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: .9vmax;
+            background-color: transparent;
+            width: 3vmax;
+            height: 3vmax;
+            border: 1px solid transparent;
+            border-radius: .5vmax;
+            transition: 0.3s;
+            @include flex(center, center, row);
+
+            .link-ico {
+                height: 1.9vmax;
+                width: 1.9vmax;
+                background-size: 80%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .hm {
+                background-image: url(../../assets/Icons/home.png);
+            }
+
+            .cmplt {
+                background-image: url(../../assets/Icons/tick.png);
+            }
+
+            .imp {
+                background-image: url(../../assets/Icons/star.png);
+            }
+
+            .del {
+                background-image: url(../../assets/Icons/del.png);
+            }
+        }
+
+        .side-bar-link:hover {
+            background-color: rgb(45, 45, 45);
+        }
+    }
+
+    .set-ico-a {
+        position: relative;
+        height: 3vmax;
+        width: 3vmax;
+        background-image: url(../../assets/Icons/setting.png);
+        background-size: 65%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: 0.2s;
+        padding: 1vmax 1vmax;
+        border-radius: .5vmax;
+    }
+
+    .set-ico-a:hover {
+        background-color: rgb(45, 45, 45);
+    }
+
+    .set-ico-a::after {
+        position: absolute;
+        bottom: .5vmax;
+        right: -5vmax;
+        content: 'Settings';
+        height: 2vmax;
+        width: 4vmax;
+        background-color: $mainLight;
+        border: 1px solid rgb(98, 98, 98);
+        color: #fff;
+        font-family: sans-serif;
+        border-radius: .3vmax;
+        @include flex(center, center, row);
+        font-size: .8vmax;
+        pointer-events: none;
+        transition: 0.2s;
+        opacity: 0;
+
+        @include mobile() {
+            display: none;
+        }
+    }
+
+    .set-ico-a:hover::after {
+        opacity: 1;
+    }
+
+}

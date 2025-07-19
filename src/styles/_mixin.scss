@@ -1,13 +1,136 @@
-
-@mixin flex($align, $justify, $direc){
+@mixin flex($align, $justify, $direc) {
     display: flex;
     align-items: $align;
     justify-content: $justify;
     flex-direction: $direc;
 }
 
-@mixin mobile(){
-    @media (max-width: 600px){
+@mixin sideBarAfters() {
+
+    //  Home
+
+    .hm-wl::after {
+        position: absolute;
+        bottom: .5vmax;
+        right: 0;
+        margin-right: -5vmax;
+        content: 'Home';
+        height: 2vmax;
+        width: 4vmax;
+        background-color: $mainLight;
+        border: 1px solid rgb(98, 98, 98);
+        color: #fff;
+        font-family: sans-serif;
+        border-radius: .3vmax;
+        @include flex(center, center, row);
+        font-size: .8vmax;
+        pointer-events: none;
+        transition: 0.2s;
+        opacity: 0;
+
+        @include mobile() {
+            display: none;
+        }
+    }
+
+    .hm-wl:hover::after {
+        opacity: 1;
+    }
+
+     //  Complted
+    
+    .cmplt-wl::after {
+        position: absolute;
+        bottom: .5vmax;
+        right: 0;
+        margin-right: -7vmax;
+        content: 'Completed';
+        padding: 0 1vmax;
+        height: 2vmax;
+        width: auto;
+        background-color: $mainLight;
+        border: 1px solid rgb(98, 98, 98);
+        color: #fff;
+        font-family: sans-serif;
+        border-radius: .3vmax;
+        @include flex(center, center, row);
+        font-size: .8vmax;
+        pointer-events: none;
+        transition: 0.2s;
+        opacity: 0;
+
+        @include mobile() {
+            display: none;
+        }
+    }
+
+    .cmplt-wl:hover::after {
+        opacity: 1;
+    }
+
+     //  Star
+    
+    .imp-wl::after {
+        position: absolute;
+        bottom: .5vmax;
+        right: 0;
+        margin-right: -5vmax;
+        content: 'Stared';
+        height: 2vmax;
+        width: 4vmax;
+        background-color: $mainLight;
+        border: 1px solid rgb(98, 98, 98);
+        color: #fff;
+        font-family: sans-serif;
+        border-radius: .3vmax;
+        @include flex(center, center, row);
+        font-size: .8vmax;
+        pointer-events: none;
+        transition: 0.2s;
+        opacity: 0;
+
+        @include mobile() {
+            display: none;
+        }
+    }
+
+    .imp-wl:hover::after {
+        opacity: 1;
+    }
+
+     //  Delete
+    
+    .del-wl::after {
+        position: absolute;
+        bottom: .5vmax;
+        right: 0;
+        margin-right: -5vmax;
+        content: 'Deleted';
+        height: 2vmax;
+        width: 4vmax;
+        background-color: $mainLight;
+        border: 1px solid rgb(98, 98, 98);
+        color: #fff;
+        font-family: sans-serif;
+        border-radius: .3vmax;
+        @include flex(center, center, row);
+        font-size: .8vmax;
+        pointer-events: none;
+        transition: 0.2s;
+        opacity: 0;
+
+        @include mobile() {
+            display: none;
+        }
+    }
+
+    .del-wl:hover::after {
+        opacity: 1;
+    }
+}
+
+@mixin mobile() {
+    @media (max-width: 600px) {
         @content;
     }
 }

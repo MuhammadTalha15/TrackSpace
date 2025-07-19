@@ -1,20 +1,20 @@
 @import '../../styles/variables';
 @import '../../styles/mixin';
 
-.header{
+.header {
     position: absolute;
     width: 100%;
     height: 4vmax;
     background-color: $mainDark;
-    padding: 0 5vmax;
+    padding: 0 3vmax;
     @include flex(center, space-between, row);
 
-    .logo{
+    .logo {
         height: 3vmax;
         width: 10vmax;
         @include flex(center, center, row);
 
-        .logo-txt{
+        .logo-txt {
             display: block;
             font-size: 2vmax;
             font-family: sans-serif;
@@ -24,44 +24,27 @@
         }
     }
 
-    .set-ico-a{
-        position: relative;
-        height: 2vmax;
-        width: 2vmax;
-        background-image: url(../../assets/Icons/setting.png);
-        background-size: cover;
-        background-position: center;
-        transition: 0.2s;
-    }
-
-    .set-ico-a::after{
-        position: absolute;
-        bottom: -2.8vmax;
-        right: -1vmax;
-        content: 'Settings';
-        height: 2vmax;
-        width: 4vmax;
-        background-color: $mainLight;
-        border: 1px solid rgb(98, 98, 98);
-        color: #fff;
-        font-family: sans-serif;
-        border-radius: .3vmax;
+    .usr-prfl {
+        height: 3.5vmax;
+        width: 3.5vmax;
+        // border: 1px solid #fff;
         @include flex(center, center, row);
-        font-size: .8vmax;
-        pointer-events: none;
-        transition: 0.2s;
-        opacity: 0;
 
-        @include mobile(){
-            display: none;
-        }
+        .pic {
+                height: 3vmax;
+                width: 3vmax;
+                border: 1px solid #181818;
+                border-radius: 50%;
+                cursor: pointer;
+
+                .usr-dp {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
     }
 
-    .set-ico-a:hover::after{
-        opacity: 1;
-    }
-
-    .search-bar-cnt{
+    .search-bar-cnt {
         height: 2.3vmax;
         width: 25vmax;
         margin-right: 5vmax;
@@ -70,7 +53,7 @@
         @include flex(center, start, row);
         padding: 0 1vmax;
 
-        .searchIco{
+        .searchIco {
             height: 1vmax;
             width: 1vmax;
             background-image: url(../../assets/Icons/searchIco.png);
@@ -79,7 +62,7 @@
             background-repeat: no-repeat;
         }
 
-        .searchBox{
+        .searchBox {
             height: 100%;
             width: 100%;
             background-color: transparent;
