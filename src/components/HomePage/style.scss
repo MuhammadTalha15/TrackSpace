@@ -34,23 +34,23 @@
             width: 100%;
             // border: 1px solid #fff;
             @include flex(center, space-between, row);
-            padding: 2vmax 2vmax;
+            padding: 1vmax 2vmax;
 
             .txt-cnt {
-
                 height: auto;
                 width: auto;
 
                 .hm-hero-banenr-name {
                     font-family: sans-serif;
                     color: #fff;
-                    font-size: 2.5vmax;
+                    font-size: 2vmax;
+                    font-weight: 400;
                 }
 
                 .date {
                     font-family: sans-serif;
                     color: #fff;
-                    font-size: 1.5vmax;
+                    font-size: 1.2vmax;
                     font-weight: 300;
                 }
 
@@ -61,90 +61,75 @@
         .tsk-tp-bar {
             height: 3vmax;
             width: 100%;
-            // border: 1px solid;
+            border: 1px solid;
             @include flex(center, center, row);
 
-            .tp-bar {
-                height: 100%;
-                width: calc(100% / 3);
-                // border: 1px solid;
-                padding: 0 4.5vmax;
-                @include flex(center, space-between, row);
-
-                .tp-bar-head {
-                    position: relative;
-                    font-size: 1.2vmax;
-                    font-family: sans-serif;
-                    color: #fefefe;
-
-                    &.todo::after {
-                        position: absolute;
-                        content: '';
-                        height: 100%;
-                        width: 5px;
-                        left: -.8vmax;
-                        border-radius: 1vmax;
-                        background-color: rgb(255, 191, 0);
-                    }
-
-                    &.prgress::after {
-                        position: absolute;
-                        content: '';
-                        height: 100%;
-                        width: 5px;
-                        left: -.8vmax;
-                        border-radius: 1vmax;
-                        background-color: rgb(0, 102, 255);
-                    }
-
-                    &.cmplt::after {
-                        position: absolute;
-                        content: '';
-                        height: 100%;
-                        width: 5px;
-                        left: -.8vmax;
-                        border-radius: 1vmax;
-                        background-color: rgb(0, 255, 140);
-                    }
-                }
-
-                .add-tsk {
-                    height: 2.5vmax;
-                    width: 5vmax;
-                    font-size: 1vmax;
-                    background-color: transparent;
-                    color: #fff;
-                    border: none;
-                    cursor: pointer;
-                    border-radius: .2vmax;
-                    transition: 0.3s;
-                }
-
-                .add-tsk:hover {
-                    background-color: #cbcbcb7d;
-                }
-            }
         }
 
         .tsk-cont-cnt {
-            height: auto;
+            height: 77vh;
             width: 100%;
-            // border: 1px solid;
-            @include flex(flex-start, center, row);
-            // padding: 1vmax 0;
+            border: 1px solid;
+            @include flex(center, left, row);
+            padding: 0 .7vmax;
+            gap: .7vmax;
             // transition: 0.3s;
             // border: 1px solid;
 
             .task-cnt {
-                height: 33vmax;
-                width: calc(100% / 3);
-                // border: 1px solid;
-                padding: 2vmax 3.5vmax;
+
+                height: 95%;
+                width: calc(60% / 3);
+                border: 2px solid #232323;
+                background-color: #2b2b2b44;
+                // padding: 2vmax 3.5vmax;
                 @include flex(start, flex-start, column);
-                overflow-y: auto;
-                overflow-x: hidden;
-                gap: 1vmax;
+                // gap: 1vmax;
+                border-radius: .5vmax;
                 transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+                .tp-bar {
+                    height: 3vmax;
+                    width: 100%;
+                    // border: 1px solid;
+                    padding: 0 1vmax;
+                    @include flex(center, space-between, row);
+
+                    .tp-bar-head {
+                        position: relative;
+                        font-size: 1vmax;
+                        font-family: sans-serif;
+                        color: #fefefe;
+
+                    }
+
+                    .add-tsk {
+                        height: 2vmax;
+                        width: 5vmax;
+                        font-size: .9vmax;
+                        background-color: transparent;
+                        color: #fff;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: .2vmax;
+                        transition: 0.3s;
+                    }
+
+                    .add-tsk:hover {
+                        background-color: #cbcbcb7d;
+                    }
+                }
+
+                .tsk-arr-cnt {
+                    height: calc(100% - 3vmax);
+                    width: 100%;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    // border: 1px solid;
+                    gap: 1vmax;
+                    padding: 1vmax 0;
+                    @include flex(center, flex-start, column)
+                }
 
                 .task {
                     min-height: 12vmax;
@@ -169,15 +154,15 @@
     @include flex(center, center, row);
 
     @keyframes fadeOut {
-        0%{
+        0% {
             opacity: 1;
         }
 
-        50%{
+        50% {
             opacity: 0;
         }
 
-        100%{
+        100% {
             opacity: 0;
             pointer-events: none;
         }
@@ -245,7 +230,7 @@
     }
 
     .desc {
-        height: 10vmax;
+        min-height: 10vmax;
         width: 100%;
         background-color: transparent;
         border: 1px solid rgb(63, 63, 63);
@@ -262,8 +247,9 @@
         }
     }
 
-    .prio {
-        height: 3vmax;
+    .sec {
+        position: relative;
+        min-height: 3vmax;
         width: 100%;
         text-align: left;
         padding: 0 1vmax;
@@ -278,10 +264,41 @@
         &:hover {
             background-color: #2222224c;
         }
+
+    }
+
+    .prio-option{
+        position: absolute;
+        top: calc(3vmax + 5px);
+        left: 0;
+        background: #232323;
+        min-height: 9vmax;
+        width: 100%;
+        border: 1px solid rgb(63, 63, 63);
+        border-radius: .4vmax;
+    }
+
+    .prio {
+        min-height: 3vmax;
+        width: 100%;
+        text-align: left;
+        padding: 0 1vmax;
+        background-color: transparent;
+        border: 1px solid rgb(63, 63, 63);
+        border-radius: .4vmax;
+        font-family: sans-serif;
+        color: #fefefe;
+        font-size: .9vmax;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #2222224c;
+        }
+
     }
 
     .createTask {
-        height: 3vmax;
+        min-height: 3vmax;
         width: 100%;
         border-radius: .5vmax;
         border: none;

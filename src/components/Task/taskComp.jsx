@@ -3,6 +3,9 @@ import './style.scss';
 // import { FaRegUser, FaRegCommentDots, FaRegEye } from 'react-icons/fa';
 
 const TaskCard = (props) => {
+
+    const title = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor ea nisi consectetur perspiciatis, dolorem, error'
+    const test = 'Change top CTA button text';
     return (
         <>
             <div className="task-card">
@@ -18,7 +21,7 @@ const TaskCard = (props) => {
                     </div>
                 </div>
 
-                <div className="title">Change top CTA button text</div>
+                <div className="title">{test}</div>
 
 
                 <div className="footer">
