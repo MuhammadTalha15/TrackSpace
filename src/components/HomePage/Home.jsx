@@ -41,7 +41,7 @@ const Home = () => {
                         <div className="task-cnt">
                             <div className="tp-bar">
                                 <h1 className="tp-bar-head todo">To Do</h1>
-                                <button onClick={creataTodoTask} id='todo' className="add-tsk">Add new</button>
+                                <button onClick={creataTodoTask} id='todo' className="add-tsk"><span className='add-btn-ico'></span></button>
                             </div>
                             <div className="tsk-arr-cnt">
                                 {
@@ -54,7 +54,7 @@ const Home = () => {
                         <div className="task-cnt">
                             <div className="tp-bar">
                                 <h1 className="tp-bar-head todo">In Progress</h1>
-                                <button onClick={creataTodoTask} id='todo' className="add-tsk">Add new</button>
+                                <button onClick={creataTodoTask} id='todo' className="add-tsk"><span className='add-btn-ico'></span></button>
                             </div>
                             <div className="tsk-arr-cnt">
                                 {
@@ -67,7 +67,7 @@ const Home = () => {
                         <div className="task-cnt">
                             <div className="tp-bar">
                                 <h1 className="tp-bar-head todo">Done</h1>
-                                <button onClick={creataTodoTask} id='todo' className="add-tsk">Add new</button>
+                                <button onClick={creataTodoTask} id='todo' className="add-tsk"><span className='add-btn-ico'></span></button>
                             </div>
                             <div className="tsk-arr-cnt">
                                 {
@@ -108,7 +108,7 @@ const MakeTaskWindow = (props) => {
             <section className={defaultClass} >
                 <div className="task-mkr-cnt">
 
-                    <button className="close"><span className='close-ico' onClick={focusFunction}></span></button>
+                    <button className="close" onClick={focusFunction}><span className='close-ico'></span></button>
 
                     <h1 className="head">Create Task</h1>
 

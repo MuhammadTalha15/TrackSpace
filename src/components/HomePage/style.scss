@@ -41,14 +41,14 @@
                 width: auto;
 
                 .hm-hero-banenr-name {
-                    font-family: sans-serif;
+                    font-family: 'Poppins', sans-serif;
                     color: #fff;
                     font-size: 2vmax;
                     font-weight: 400;
                 }
 
                 .date {
-                    font-family: sans-serif;
+                    font-family: 'Poppins', sans-serif;
                     color: #fff;
                     font-size: 1.2vmax;
                     font-weight: 300;
@@ -98,25 +98,35 @@
                     .tp-bar-head {
                         position: relative;
                         font-size: 1vmax;
-                        font-family: sans-serif;
+                        font-family: 'Poppins', sans-serif;
                         color: #fefefe;
 
                     }
 
                     .add-tsk {
-                        height: 2vmax;
-                        width: 5vmax;
+                        height: 1.8vmax;
+                        width: 1.8vmax;
                         font-size: .9vmax;
                         background-color: transparent;
-                        color: #fff;
                         border: none;
                         cursor: pointer;
                         border-radius: .2vmax;
                         transition: 0.3s;
+                        @include flex(center, center, row);
+
+                        .add-btn-ico{
+                            height: 1.2vmax;
+                            width: 1.2vmax;
+                            background-image: url(../../assets/Icons/add.png);
+                            background-size: 80%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            filter: invert(96%) sepia(3%) saturate(509%) hue-rotate(294deg) brightness(117%) contrast(100%);
+                        }
                     }
 
                     .add-tsk:hover {
-                        background-color: #cbcbcb7d;
+                        background-color: #cbcbcb42;
                     }
                 }
 
@@ -217,14 +227,14 @@
     .head {
         font-size: 2vmax;
         color: #fefefe;
-        font-family: sans-serif;
+        font-family: 'Poppins', sans-serif;
         text-align: center;
         width: 100%;
         margin-bottom: 1vmax;
     }
 
     .lbl {
-        font-family: sans-serif;
+        font-family: 'Poppins', sans-serif;
         color: #fff;
         font-size: 1vmax;
     }
@@ -240,7 +250,7 @@
         color: #fefefe;
         padding: 1vmax 1vmax;
         font-size: 1vmax;
-        font-family: sans-serif;
+        font-family: 'Poppins', sans-serif;
 
         &::placeholder {
             font-size: .9vmax;
@@ -256,7 +266,7 @@
         background-color: transparent;
         border: 1px solid rgb(63, 63, 63);
         border-radius: .4vmax;
-        font-family: sans-serif;
+        font-family: 'Poppins', sans-serif;
         color: #fefefe;
         font-size: .9vmax;
         cursor: pointer;
@@ -286,7 +296,7 @@
         background-color: transparent;
         border: 1px solid rgb(63, 63, 63);
         border-radius: .4vmax;
-        font-family: sans-serif;
+        font-family: 'Poppins', sans-serif;
         color: #fefefe;
         font-size: .9vmax;
         cursor: pointer;
@@ -303,7 +313,7 @@
         border-radius: .5vmax;
         border: none;
         font-size: .9vmax;
-        font-family: sans-serif;
+        font-family: 'Poppins', sans-serif;
         color: #000;
         cursor: pointer;
         background-color: #fefefe;
