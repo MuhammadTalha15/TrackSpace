@@ -14,6 +14,10 @@ function App() {
       element: <><Navbar/><Home/></>
     },
     {
+      path: '/Tasks',
+      element: <><Navbar/><Home/></>
+    },
+    {
       path: '/Completed',
       element: <><Navbar/><Completed/></>
     },

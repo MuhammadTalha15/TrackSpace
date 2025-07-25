@@ -10,13 +10,40 @@ const Home = () => {
 
     const [counter, setCounter] = useState(1);
     const [todo, setTodo] = useState([]);
-    // const [todo, setTodo] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+    const [inProg, setInProg] = useState([]);
+    const [done, setDone] = useState([]);
 
+    
     const [makeingTask, setMakeingTask] = useState(false);
-
+    
     const creataTodoTask = async () => {
         setMakeingTask(true);
     }
+    
+    // Receving Data from Child
+    
+    const [receivedObject, setReceivedObject] = useState(null);
+    
+    const handleChildData = (dataObject) => {
+        setReceivedObject(dataObject);
+        switch (dataObject.section) {
+            case 'To Do':
+                setTodo(prev => [...prev, dataObject]);
+                break;
+            case 'In Progress':
+                setInProg(prev => [...prev, dataObject]);
+                break;
+            case 'Done':
+                setDone(prev => [...prev, dataObject]);
+                break;
+            default:
+                console.warn('Unknown Inputes');
+                break;
+        }
+
+    }
+
+    // console.log(taskPriority);
 
     return (
         <>
@@ -24,7 +51,7 @@ const Home = () => {
                 <title>TrackSpace</title>
             </Helmet>
 
-            {makeingTask && <MakeTaskWindow onClose={() => setMakeingTask(false)} />}
+            {makeingTask && <MakeTaskWindow onClose={() => setMakeingTask(false)} onDataSend={handleChildData} />}
 
             <section className="hero">
                 <Sidebar />
@@ -46,7 +73,7 @@ const Home = () => {
                             <div className="tsk-arr-cnt">
                                 {
                                     todo.map((task, index) => (
-                                        <TaskCard userName={name} />
+                                        <TaskCard key={index} userName={name} taskDescription={task.description} taskPrio={task.priority}/>
                                     ))
                                 }
                             </div>
@@ -58,8 +85,8 @@ const Home = () => {
                             </div>
                             <div className="tsk-arr-cnt">
                                 {
-                                    todo.map((task, index) => (
-                                        <TaskCard userName={name} />
+                                    inProg.map((task, index) => (
+                                        <TaskCard key={index} userName={name} taskDescription={task.description} taskPrio={task.priority}/>
                                     ))
                                 }
                             </div>
@@ -71,8 +98,8 @@ const Home = () => {
                             </div>
                             <div className="tsk-arr-cnt">
                                 {
-                                    todo.map((task, index) => (
-                                        <TaskCard userName={name} />
+                                    done.map((task, index) => (
+                                        <TaskCard key={index} userName={name} taskDescription={task.description} taskPrio={task.priority}/>
                                     ))
                                 }
                             </div>
@@ -103,26 +130,59 @@ const MakeTaskWindow = (props) => {
         }, 300);
     }
 
+    const [section, setSection] = useState(['To Do', 'In Progress', 'Done']);
+    const [prio, setPriority] = useState(['Low', 'Medium', 'High']);
+
+    const [taskDescription, setTaskDescription] = useState('');
+    const [selectedSection, setSelectedSection] = useState('');
+    const [selectedPriority, setSelectedPriority] = useState('');
+
+    const taskObj = {
+        description: taskDescription,
+        section: selectedSection,
+        priority: selectedPriority
+    }
+
+    // Sending Objevt Data to Parent
+
+    const sendData = () => {
+        props.onDataSend(taskObj);
+        focusFunction();
+    }
+
     return (
         <>
             <section className={defaultClass} >
                 <div className="task-mkr-cnt">
 
-                    <button className="close" onClick={focusFunction}><span className='close-ico'></span></button>
+                    <button title='Close' className="close" onClick={focusFunction}><span className='close-ico'></span></button>
 
                     <h1 className="head">Create Task</h1>
 
-                    <label className='lbl' htmlFor="description">Task Description</label>
-                    <textarea name="decription" id="desc" className='desc' placeholder='Task Description'></textarea>
+                    <label className='lbl' htmlFor="description">Description</label>
+                    <textarea name="decription" id="desc" className='desc' placeholder='Task Description' value={taskDescription} onChange={(e) => setTaskDescription(e.target.value)}></textarea>
 
                     <label className='lbl' htmlFor="description">Section</label>
-                    
-                    <button className="sec">Select Section</button>
+                    <select name="sec" id="sec" className="sec" defaultValue="" onChange={(e) => { setSelectedSection(e.target.value) }}>
+                        <option value="" disabled hidden>Select Section</option>
+                        {
+                            section.map((section, index) => (
+                                <option className="sec-option" value={section}>{section}</option>
+                            ))
+                        }
+                    </select>
 
                     <label className='lbl' htmlFor="description">Priority</label>
-                    <button className="prio">Select Issue Priority</button>
+                    <select name="prio" id="prio" className="prio" defaultValue="" onChange={(e) => { setSelectedPriority(e.target.value) }}>
+                        <option value="" disabled hidden>Select Issue Priority</option>
+                        {
+                            prio.map((priority, index) => (
+                                <option className="prio-option" value={priority}>{priority}</option>
+                            ))
+                        }
+                    </select>
 
-                    <button className="createTask">Create</button>
+                    <button className="createTask" onClick={sendData}>Create</button>
                 </div>
             </section>
         </>

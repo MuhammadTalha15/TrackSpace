@@ -6,6 +6,7 @@ const TaskCard = (props) => {
 
     const title = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor ea nisi consectetur perspiciatis, dolorem, error'
     const test = 'Change top CTA button text';
+    
     return (
         <>
             <div className="task-card">
@@ -17,11 +18,11 @@ const TaskCard = (props) => {
                         <span>{props.userName}</span>
                     </div>
                     <div className="tags">
-                        <span title='Priority' className="tag yellow">High</span>
+                        <span title='Priority' className={`tag ${props.taskPrio}`}>{props.taskPrio}</span>
                     </div>
                 </div>
 
-                <div className="title">{test}</div>
+                <div className="title">{props.taskDescription}</div>
 
 
                 <div className="footer">
